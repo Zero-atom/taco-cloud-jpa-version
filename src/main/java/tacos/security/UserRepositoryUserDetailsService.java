@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import tacos.AppUser;
 import tacos.data.jpa.UserRepository;
 
+//дополнительно
+//import org.springframework.data.jpa.repository.query.Modifying;
+//import org.springframework.data.jpa.repository.query.Query;
+
 @Service
 public class UserRepositoryUserDetailsService implements UserDetailsService {
 
@@ -26,4 +30,10 @@ public class UserRepositoryUserDetailsService implements UserDetailsService {
         }
         throw new UsernameNotFoundException("User '" + username + "' not found");
     }
+
+//    @Modifying
+//    @Query(value = "insert into users_roles values (?,1)", nativeQuery = true)
+//    void saveUserRole(String username);//, String roleName
+
+
 }

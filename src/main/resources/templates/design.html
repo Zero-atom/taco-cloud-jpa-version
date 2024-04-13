@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<h1>Design your Taco!</h1>
+<h1>Создайте свой тако!</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 
 <form method="POST" th:action="@{/logout}">
-    <input type="submit" value="Logout"/>
+    <input type="submit" value="Выйти"/>
 </form>
 
 <form method="POST" th:object="${taco}">
@@ -23,7 +23,7 @@
     <div class="grid">
 
         <div class="ingredient-group" id="wraps">
-            <h3>Designate your wrap:</h3>
+            <h3>Назначьте свою лепешку:</h3>
             <div th:each="ingredient: ${wrap}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="ingredient-group" id="protein">
-            <h3>Designate your protein:</h3>
+            <h3>Выберите мясо:</h3>
             <div th:each="ingredient: ${protein}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="ingredient-group" id="cheeses">
-            <h3>Designate your cheese:</h3>
+            <h3>Выберите сыр:</h3>
             <div th:each="ingredient: ${cheese}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="ingredient-group" id="veggies">
-            <h3>Designate your veggies:</h3>
+            <h3>Выберите салат:</h3>
             <div th:each="ingredient: ${veggies}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="ingredient-group" id="sauces">
-            <h3>Designate your sauce:</h3>
+            <h3>Выберите соус:</h3>
             <div th:each="ingredient: ${sauce}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -65,7 +65,7 @@
     </div>
 
     <div>
-        <h3>Name your taco creation: </h3>
+        <h3>Имя вашего шедевра: </h3>
         <input type="text" th:field="*{name}"/>
 
         <span class="validationError"
@@ -73,7 +73,7 @@
               th:errors="*{name}">Name Error</span>
         <br>
 
-        <button>Submit your taco</button>
+        <button>создать ваш шедевр</button>
     </div>
 </form>
 

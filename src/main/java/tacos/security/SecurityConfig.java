@@ -22,6 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.userDetailsService = userDetailsService;
     }
 
+
+    //кодировка паролей
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
@@ -29,6 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        /*
+ Пример части аутентификации для учебного проекта. В промышленных проектах нужно
+ добавить отдельные сервисы для реализации полной аутентификации
+ в соответствии со схемой данных, с уникальных идентификатором пользователя и тп
+*/
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(encoder());
@@ -38,8 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/design", "/order").hasRole("USER")
-                .antMatchers("/", "/**").permitAll()
+                .antMatchers("/design", "/order").hasRole("USER")//куда имеет доступ с ролью USER
+                .antMatchers("/", "/**").permitAll()//всем можно
 
                 .and()
                 .formLogin().loginPage("/login")
@@ -53,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
         ;
 
-        // in order to use h2-console, must be re-enabled upon production
+
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }

@@ -28,6 +28,7 @@ public class RegistrationController {
 
     @PostMapping
     public String processRegistration(RegistrationForm form) {
+        // TODO Подобную логику надо добавлять в сервисный слой
         userRepo.save(form.toUser(passwordEncoder));
         return "redirect:/login";
     }

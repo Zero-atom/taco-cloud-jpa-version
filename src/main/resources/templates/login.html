@@ -4,30 +4,30 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Taco Cloud</title>
+    <title>Облачный тако</title>
 </head>
 <body>
 
-<h1>Login</h1>
+<h1>Логин</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 
 <div th:if="${error}">
-    Unable to login. Check your username and password.
+    Ошибка аутентификации. Проверьте, пожалуйста, логин и пароль!.
 </div>
 
-<p>New here? Click
-    <a th:href="@{/register}">here</a> to register.
+<p>Нажмите на
+    <a th:href="@{/register}">ссылку</a> для регистрации..
 </p>
 
 <form method="POST" th:action="@{/login}" id="loginForm">
 
-    <label for="username">Username: </label>
+    <label for="username">Логин: </label>
     <input type="text" name="username" id="username" /><br/>
 
-    <label for="password">Password: </label>
+    <label for="password">Пароль:  </label>
     <input type="password" name="password" id="password" /><br/>
 
-    <input type="submit" value="Login"/>
+    <input type="submit" value="Ок"/>
 
 </form>
 
